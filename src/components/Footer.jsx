@@ -10,10 +10,10 @@ const Footer = () => {
         <div className="container mx-auto flex justify-between items-center h-full">
           <div className="social-links">
             <a href="https://github.com/furkanunsalan" target="_blank" rel="noopener noreferrer">
-              <img src={social_icon} alt="Social Media" className="w-8 h-8" />
+              <img src={social_icon} alt="Social Media" className="w-10 h-10" />
             </a>
           </div>
-          <p>&copy; {currentYear} Your Website Name. All rights reserved.</p>
+          <p>&copy; {currentYear} Made by Furkan Ünsalan. All rights reserved.</p>
         </div>
       </footer>
   );

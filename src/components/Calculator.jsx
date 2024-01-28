@@ -78,7 +78,7 @@ export default function Calculator() {
     };
 
     return (
-        <div className="Calculator">
+        <div id="tool" className="Calculator">
             <h1 className="font-bold text-center text-2xl">GPA Calculator</h1>
             <div className="flex justify-center p-3">
                 <label className="" htmlFor="lessonCount">How many lessons do you have?</label>
@@ -94,7 +94,7 @@ export default function Calculator() {
 
 
             {lessons.map((lesson, index) => (
-                <div key={index} className="lesson w-3/4 border border-stone-400 rounded m-auto mb-4">
+                <div key={index} className="lesson w-3/4 bg-[#313c41] rounded-xl m-auto mb-4 p-2 grid grid-cols-1 sm:block">
                     <hr />
                     <label htmlFor={`hasLab_${index}`}>Do you have lab for this lesson? (y/n):</label>
                     <input className=""
@@ -123,6 +123,15 @@ export default function Calculator() {
                         onChange={(e) => handleLessonChange(index, 'midtermPercentage', e.target.value)}
                     />
 
+                    <label htmlFor={`midterm_${index}`}>Midterm Grade:</label>
+                    <input
+                        type="number"
+                        id={`midterm_${index}`}
+                        name={`midterm_${index}`}
+                        value={lesson.midterm || ''}
+                        onChange={(e) => handleLessonChange(index, 'midterm', e.target.value)}
+                    />
+
                     <label htmlFor={`finalPercentage_${index}`}>Final Percentage:</label>
                     <input
                         type="number"
@@ -132,8 +141,17 @@ export default function Calculator() {
                         onChange={(e) => handleLessonChange(index, 'finalPercentage', e.target.value)}
                     />
 
+                    <label htmlFor={`final_${index}`}>Final Grade:</label>
+                    <input
+                        type="number"
+                        id={`final_${index}`}
+                        name={`final_${index}`}
+                        value={lesson.final || ''}
+                        onChange={(e) => handleLessonChange(index, 'final', e.target.value)}
+                    />
+
                     {lesson.hasLab === 'y' && (
-                        <div>
+                        <div className="grid grid-cols-1 sm:block">
                             <label htmlFor={`homeworkPercentage_${index}`}>Homework Percentage:</label>
                             <input
                                 type="number"
@@ -153,24 +171,6 @@ export default function Calculator() {
                             />
                         </div>
                     )}
-
-                    <label htmlFor={`midterm_${index}`}>Midterm Grade:</label>
-                    <input
-                        type="number"
-                        id={`midterm_${index}`}
-                        name={`midterm_${index}`}
-                        value={lesson.midterm || ''}
-                        onChange={(e) => handleLessonChange(index, 'midterm', e.target.value)}
-                    />
-
-                    <label htmlFor={`final_${index}`}>Final Grade:</label>
-                    <input
-                        type="number"
-                        id={`final_${index}`}
-                        name={`final_${index}`}
-                        value={lesson.final || ''}
-                        onChange={(e) => handleLessonChange(index, 'final', e.target.value)}
-                    />
                 </div>
             ))}
 
@@ -180,14 +180,13 @@ export default function Calculator() {
             </button>
 
             {result && (
-                <div className="result">
-                    <h2 className="">GPA Result</h2>
-                    <table>
+                <div className="result text-center w-1/2 m-auto mb-12 ">
+                    <table className="m-auto bg-[#313c41] rounded-xl">
                         <thead>
                         <tr>
-                            <th>Lesson Name</th>
-                            <th>Grade*Credit</th>
-                            <th>Grade</th>
+                            <th className="p-2">Lesson Name</th>
+                            <th className="p-2">Grade*Credit</th>
+                            <th className="p-2">Grade</th>
                         </tr>
                         </thead>
                         <tbody className="text">

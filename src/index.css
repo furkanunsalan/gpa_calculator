@@ -19,3 +19,7 @@ body {
     background-color: #181B1E;
     color: white;
 }
+
+hr {
+    border-top-width: 0px;
+}
