@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input {
+    --tw-bg-opacity: 1;
+    background-color: #CCCCCC;
+    border-radius: 0.25rem/* 4px */;;
+    text-align: center;
+    --tw-text-opacity: 1;
+    color: rgb(12 10 9 / var(--tw-text-opacity));
+}
+
+input, label {
+    margin: 0.25rem/* 4px */;
+}
+
+body {
+    background-color: #181B1E;
+    color: white;
+}
